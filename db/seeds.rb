@@ -5,8 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
- 
-airports = [{name: "Hartsfield–Jackson Atlanta International Airport", code: "ATL", location: "Atlanta, Georgia", countryCode: "US", countryName: "United States"},
+
+Airport::delete_all
+Flight::delete_all
+
+airportList = [{name: "Hartsfield–Jackson Atlanta International Airport", code: "ATL", location: "Atlanta, Georgia", countryCode: "US", countryName: "United States"},
     {name: "Dallas Fort Worth International Airport", code: "DFW", location: "Dallas-Fort Worth, Texas", countryCode: "", countryName: "United States"},
     {name: "Denver International Airport", code: "DEN", location: "Denver, Colorado", countryCode: "US", countryName: "United States"},
     {name: "O'Hare International Airport", code: "ORD", location: "Chicago, Illinois", countryCode: "US", countryName: "United States"},
@@ -26,3 +29,15 @@ airports = [{name: "Hartsfield–Jackson Atlanta International Airport", code: "
     {name: "China Chongqing Jiangbei International Airport", code: "CKG", location: "Yubei, Chongqing", countryCode: "CH", countryName: "China"},
     {name: "Shanghai Hongqiao International Airport", code: "SHA", location: "Changning-Minhang, Shanghai", countryCode: "CH", countryName: "China"},
     {name: "Beijing Capital International Airport", code: "PEK", location: "Chaoyang-Shunyi, Beijing", countryCode: "CH", countryName: "China"}]
+
+airports = airportList.each do |a|
+    Airport.create(a)
+end
+
+allAirports = Airport.all
+
+flights = allAirports.each do |a|
+        18.times do |n|
+            a.arriving_flights.create(departure_id: n, date: Time.now, duration_hr: n ) unless a.id == n
+        end
+end

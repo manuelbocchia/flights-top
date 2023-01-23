@@ -1,0 +1,2 @@
+class AirportFlight < ApplicationRecord
+end
