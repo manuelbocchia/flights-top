@@ -1,0 +1,8 @@
+<div>
+    <h4>Search airport:</h4>
+    <%= form_with model: @flight do |f| %>
+    <%= f.label :departure %>
+    <%= f.collection_select :departure, Flight.all, :departure, :id %>
+    <%= submit_tag %>
+    <%end%>
+<div>
