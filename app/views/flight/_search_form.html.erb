@@ -1,8 +1,19 @@
 <div>
-    <h4>Search airport:</h4>
-    <%= form_with model: @flight do |f| %>
-    <%= f.label :departure %>
-    <%= f.collection_select :departure, Flight.all, :departure, :id %>
-    <%= submit_tag %>
-    <%end%>
+    <h4>Search flight:</h4>
+        <%= form_with model: @flight do |f| %>
+        
+            <%= f.label :departure %>
+            <%= f.collection_select(:departure_id, Flight.all, :departure, :departure_name) %>
+            
+            <%= f.label :arrival %>
+            <%= f.collection_select(:arrival_id,  Flight.all, :arrival, :arrival_name) %>
+            
+            <%= f.label :date %>
+            <%= f.date_select :date %>
+            
+            <%= f.label :passengers %>
+            <%= f.select :passengers, [[1], [2], [3], [4]]%>
+
+            <%= submit_tag "Look for a flight." %>
+        <%end%>
 <div>

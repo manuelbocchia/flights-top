@@ -4,4 +4,5 @@ class FlightController < ApplicationController
         @flights = Flight.all
     end
 
+
 end
