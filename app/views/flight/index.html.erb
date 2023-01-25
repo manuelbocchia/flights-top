@@ -3,12 +3,16 @@
 <%= render "search_form" %>
 
 <div>
-<%if @search.any? %>
-    <% @search.each do |f|%>
-        <p> Flight <%= f.id %> from <%= f.departure_name %> to <%= f.arrival_name %> leaves on the <%= f.date.strftime("%d/%m/%Y") %> </p>
-        <%= link_to "Flight", f %>
-    <%end%>
-<%else%>
-    <p> No result! </p>
+<%=form_with url: "" do |form| %>
+        <%= form.hidden_field :passengers, value: @passengers %>
+        <%if @search.any? %>
+            <% @search.each do |f|%>
+              <p> <%= form.radio_button :choice, f.id %>  Flight <%= f.id %> from <%= f.departure_name %> to <%= f.arrival_name %> leaves on the <%= f.date.strftime("%d/%m/%Y") %> </p>
+            
+            <%end%>
+            <%= submit_tag "Register flight!"%>
+        <%else%>
+            <p> No available flights.</p>
+        <%end%>
 <%end%>
 </div>

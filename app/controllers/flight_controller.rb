@@ -7,6 +7,7 @@ class FlightController < ApplicationController
         @flights = Flight.all
 
         @search = Flight.find_by_sql ["SELECT * FROM flights WHERE arrival_id = ? OR departure_id = ?", params[:arrival], params[:departure]]
+        @passengers = params[:passengers]
     end
 
 end
