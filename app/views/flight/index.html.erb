@@ -2,6 +2,11 @@
 
 <%= render "search_form" %>
 
-<%= @search %>
-
+<div>
+<%if @search.first %>
+<p> Flight <%= @search.first.id %> from <%= @search.first.departure_name %> to <%= @search.first.arrival_name %> leaves on the <%= @search.first.date.strftime("%d/%m/%Y") %> </p>
+<%= link_to "Flight", @search.first %>
+<%else%>
+<p> No result! </p>
+<%end%>
 </div>
