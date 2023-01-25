@@ -5,17 +5,17 @@
             <%= f.label :departure %>
             <%#= f.collection_select(:departure_id, Flight.all, :departure, :departure_name) %>
 
-            <%= f.select(:departure, options_for_select(@departure_options))%>
+            <%= f.select(:departure, options_for_select(@departure_options), include_blank: true)%>
             
             <%= f.label :arrival %>
             <%#= f.collection_select(:arrival_id,  Flight.all, :arrival, :arrival_name) %>
 
-            <%= f.select(:arrival, options_for_select(@arrival_options))%>
+            <%= f.select(:arrival, options_for_select(@arrival_options), include_blank: true)%>
             
             <%= f.label :date %>
             <%#= f.collection_select(:date, Flight.all, :date, :date) %>
 
-            <%= f.select(:date, options_for_select(@date_options))%>
+            <%= f.select(:date, options_for_select(@date_options), include_blank: true)%>
             
             <%= f.label :passengers %>
             <%= f.select :passengers, [[1], [2], [3], [4]]%>

@@ -3,10 +3,12 @@
 <%= render "search_form" %>
 
 <div>
-<%if @search.first %>
-<p> Flight <%= @search.first.id %> from <%= @search.first.departure_name %> to <%= @search.first.arrival_name %> leaves on the <%= @search.first.date.strftime("%d/%m/%Y") %> </p>
-<%= link_to "Flight", @search.first %>
+<%if @search.any? %>
+    <% @search.each do |f|%>
+        <p> Flight <%= f.id %> from <%= f.departure_name %> to <%= f.arrival_name %> leaves on the <%= f.date.strftime("%d/%m/%Y") %> </p>
+        <%= link_to "Flight", f %>
+    <%end%>
 <%else%>
-<p> No result! </p>
+    <p> No result! </p>
 <%end%>
 </div>
