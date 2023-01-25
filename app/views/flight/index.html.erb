@@ -2,12 +2,6 @@
 
 <%= render "search_form" %>
 
-<div>
+<%= @search %>
 
-<% @flights.each do |f| %>
-
-<p> Flight <%= f.id %>, departing from <%= f.departure.name %> with destination <%= f.arrival.name %> 
-with a departure date of <%= f.date %> and lasting for <%= f.duration_hr %> hr. is available. </p>
-
-<% end %>
 </div>

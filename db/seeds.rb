@@ -38,6 +38,6 @@ allAirports = Airport.all
 
 flights = allAirports.each do |a|
         18.times do |n|
-            a.arriving_flights.create(departure_id: n, date: Time.now, duration_hr: n ) unless a.id == n
+            a.arriving_flights.create(departure_id: n, date: Date.today, duration_hr: n ) unless a.id == n
         end
 end
