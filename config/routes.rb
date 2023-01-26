@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :airport
   resources :flight
+  resources :passengers
+  resources :booking
 
   # Defines the root path route ("/")
   # root "articles#index"
