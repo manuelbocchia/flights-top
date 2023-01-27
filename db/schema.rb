@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_27_000550) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_27_142522) do
   create_table "airport_flights", force: :cascade do |t|
     t.integer "flight"
     t.integer "departure_airport"
@@ -57,12 +57,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_27_000550) do
   create_table "users", force: :cascade do |t|
     t.string "user"
     t.string "email"
-    t.integer "flight_id", null: false
+    t.integer "booking_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["flight_id"], name: "index_users_on_flight_id"
+    t.index ["booking_id"], name: "index_users_on_booking_id"
   end
 
   add_foreign_key "bookings", "flights"
-  add_foreign_key "users", "flights"
+  add_foreign_key "users", "flights", column: "booking_id"
 end
