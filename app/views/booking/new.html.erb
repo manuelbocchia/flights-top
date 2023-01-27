@@ -1,0 +1,15 @@
+<h3> Book your flight! <h3>
+
+<%= form_with booking_path(@booking) do |f| %>
+    <% pass_no.times do |i| %>
+        <%= fields_for :user do |u| %>
+        <h4> Passenger <%= i %> </h4>
+        <%= u.label :user, "Passenger name:" %>
+        <%= u.text_field :query %>
+        <%= u.label :email, "Email:" %>
+        <%= u.email_field :email %>
+        <%end%>
+    <%end%>
+
+    <%= submit_tag "Book flight"%>
+<%end%>
